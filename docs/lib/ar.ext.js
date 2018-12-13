@@ -32,6 +32,27 @@ var THREEx = {
   "HitTestingTango": function () {},
   "addArucoDatGui": function () {}
 };
+
+THREEx.ArBaseControls.prototype = {
+  "object3d": {},
+  "id": {},
+  "update": function () {},
+  "name": function () {}
+};
+THREEx.ArMarkerControls.prototype = {
+  "context": {},
+  "parameters": {},
+  "size": {},
+  "type": {},
+  "patternUrl": {},
+  "barcodeValue": {},
+  "changeMatrixMode": {},
+  "minConfidence": {},
+  "object3d": {},
+  "updateWithModelViewMatrix": function () {},
+  "name": function () {},
+  "_initArtoolkit": function () {}
+};
 THREEx.ARClickability.prototype = {
   "computeIntersects": function () {},
   "onResize": function () {},
@@ -90,7 +111,24 @@ THREEx.ArToolkitContext.prototype = {
   "_initTango": function () {},
   "_updateTango": function () {},
   "updateWithModelViewMatrix": function () {},
-  "getFrameData": function () {}
+  "getFrameData": function () {},
+  "parameters": {}
+};
+THREEx.ArSmoothedControls.prototype = {
+  "_lastLerpStepAt": {},
+  "_visibleStartedAt": {},
+  "_unvisibleStartedAt": {},
+  "parameters": {},
+  "lerpPosition": {},
+  "lerpQuaternion": {},
+  "lerpScale": {},
+  "lerpStepDelay": {},
+  "minVisibleDelay": {},
+  "minUnvisibleDelay": {},
+  "object3d": {},
+  "wasVisible": {},
+  "snapDirectlyToTarget": function () {},
+  "applyOneSlerpStep": function () {}
 };
 THREEx.ArToolkitSource.prototype = {
   "_initSourceImage": function () {},
@@ -104,7 +142,13 @@ THREEx.ArToolkitSource.prototype = {
   "init": function () {},
   "onResize": function () {},
   "onResizeElement": function () {},
-  "toggleMobileTorch": function () {}
+  "toggleMobileTorch": function () {},
+  "ready": {},
+  "domElement": {}
+};
+THREEx.ArVideoInWebgl.prototype = {
+  "object3d": {},
+  "update": function () {}
 };
 THREEx.ArucoContext.prototype = {
   "detect": function () {},
