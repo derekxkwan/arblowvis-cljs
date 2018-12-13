@@ -6236,7 +6236,7 @@ function $arblowvis_cljs$audio$get_rms$$() {
 }
 function $arblowvis_cljs$audio$init$$() {
   $arblowvis_cljs$audio$ctx$$ = $cljs$core$truth_$$($arblowvis_cljs$audio$win$$.AudioContext) ? new $arblowvis_cljs$audio$win$$.AudioContext : new $arblowvis_cljs$audio$win$$.webkitAudioContext;
-  null != $arblowvis_cljs$audio$nav_media$$ && $arblowvis_cljs$audio$nav_media$$.getUserMedia({audio:!0}).then(function($cur_src$jscomp$inline_595_stream$jscomp$4$$) {
+  return null != $arblowvis_cljs$audio$nav_media$$ ? $arblowvis_cljs$audio$nav_media$$.getUserMedia({audio:!0}).then(function($cur_src$jscomp$inline_595_stream$jscomp$4$$) {
     var $cur_analyzer$jscomp$inline_588$$ = $arblowvis_cljs$audio$ctx$$.createAnalyser(), $cur_buflen$jscomp$inline_589$$ = $cur_analyzer$jscomp$inline_588$$.frequencyBinCount, $cur_array$jscomp$inline_590$$ = new Float32Array($cur_buflen$jscomp$inline_589$$);
     $arblowvis_cljs$audio$datalen$$ = $cur_buflen$jscomp$inline_589$$;
     $arblowvis_cljs$audio$snd_data$$ = $cur_array$jscomp$inline_590$$;
@@ -6245,7 +6245,7 @@ function $arblowvis_cljs$audio$init$$() {
     $cur_src$jscomp$inline_595_stream$jscomp$4$$.connect($cur_analyzer$jscomp$inline_588$$);
     $arblowvis_cljs$audio$analyzer$$ = $cur_analyzer$jscomp$inline_588$$;
     return $arblowvis_cljs$audio$mic_input$$ = $cur_src$jscomp$inline_595_stream$jscomp$4$$;
-  });
+  }) : null;
 }
 ;var $arblowvis_cljs$scene$th$$ = THREE, $arblowvis_cljs$scene$h_pi$$ = Math.PI / 2.0, $arblowvis_cljs$scene$txr_loader$$ = null, $arblowvis_cljs$scene$dir_light$$ = null, $arblowvis_cljs$scene$on_render_fns$$ = new $cljs$core$Atom$$($cljs$core$PersistentVector$EMPTY$$), $arblowvis_cljs$scene$update_fns$$ = new $cljs$core$Atom$$($cljs$core$PersistentVector$EMPTY$$), $arblowvis_cljs$scene$cur_opacity$$ = new $cljs$core$Atom$$(0);
 function $arblowvis_cljs$scene$rms_scaler$$($cur_scaled_input_val_y__4139__auto__$jscomp$3$$) {
@@ -6306,7 +6306,8 @@ function $arblowvis_cljs$thx$artsrc_init$$() {
   console.log("artoolkit-source init");
   $arblowvis_cljs$thx$art_src$$ = new $arblowvis_cljs$thx$th_x$$.ArToolkitSource({sourceType:"webcam"});
   $arblowvis_cljs$thx$art_src$$.init(function() {
-    return $arblowvis_cljs$thx$on_resize$$();
+    $arblowvis_cljs$thx$on_resize$$();
+    return $arblowvis_cljs$audio$init$$();
   });
   $arblowvis_cljs$thx$win$$.addEventListener("resize", function() {
     return $arblowvis_cljs$thx$on_resize$$();
@@ -6371,7 +6372,6 @@ function $arblowvis_cljs$thx$loop_init$$() {
 }
 ;function $opt_object$jscomp$inline_770$$() {
   console.log("init");
-  $arblowvis_cljs$audio$init$$();
   console.log("init-renderer");
   $arblowvis_cljs$thx$renderer$$ = new $arblowvis_cljs$thx$th$$.WebGLRenderer({alpha:!0});
   $arblowvis_cljs$thx$renderer$$.setClearColor(new $arblowvis_cljs$thx$th$$.Color("lightgrey"), 0);

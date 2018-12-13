@@ -1,5 +1,6 @@
 (ns arblowvis-cljs.thx
   (:require [arblowvis-cljs.scene :as scn]
+            [arblowvis-cljs.audio :as aud]
             ))
 
 (def win js/window)
@@ -69,7 +70,8 @@
         ;cur-params (js-obj "sourceType" "image" "sourceUrl" "../res/testimg.jpg")
         cur-ar (th-x.ArToolkitSource. cur-params)]
     (set! art-src cur-ar)
-    (.init art-src #(on-resize))
+    (.init art-src (fn [] (on-resize)
+                     (aud/init)))
 
     ;;on-ready, on-error
     (.addEventListener win "resize" #(on-resize))

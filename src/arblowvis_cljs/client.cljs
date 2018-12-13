@@ -1,6 +1,6 @@
 (ns arblowvis-cljs.client
   (:require [arblowvis-cljs.thx :as thx]
-            [arblowvis-cljs.audio :as aud]))
+            ))
 
 
 (defn ^:dev/after-load start []
@@ -8,7 +8,6 @@
 
 (defn ^:export init []
   (js/console.log "init")
-  (aud/init)
   (thx/init)
   ;(start)
   )
