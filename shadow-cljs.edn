@@ -1,0 +1,24 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src"]
+
+ :dependencies
+ []
+
+ :builds
+ {:app {:output-dir "docs/js"
+        :asset-path "js"
+        :target :browser
+       
+         
+        :modules {:client
+                  {:entries [arblowvis-cljs.client]}}
+
+        :compiler-options
+        {:externs ["docs/lib/three-merge.ext.js"
+                   "docs/lib/ar.ext.js"]}
+        :devtools {:http-root "docs"
+                   :http-port 8020}
+
+  }}
+ }
