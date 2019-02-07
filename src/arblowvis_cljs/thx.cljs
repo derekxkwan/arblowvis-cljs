@@ -75,7 +75,8 @@
         cur-ar (th-x.ArToolkitSource. cur-params)]
     (set! art-src cur-ar)
     (.init art-src (fn [] (on-resize)
-                     (aud/init)))
+                     (when (not (true? scn/debug?)) (aud/init))
+                     ))
 
     ;;on-ready, on-error
     (.addEventListener win "resize" #(on-resize))
