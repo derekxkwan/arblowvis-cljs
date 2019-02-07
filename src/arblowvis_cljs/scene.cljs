@@ -18,7 +18,7 @@
 (def gas-url "res/gas_station.ply")
 (def food-url "res/fingerfood.ply")
 
-(def debug? false)
+(def debug? true)
 (def txr-loader nil)
 (def ply-loader nil)
 
