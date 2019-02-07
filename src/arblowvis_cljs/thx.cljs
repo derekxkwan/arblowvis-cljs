@@ -6,12 +6,11 @@
 (def win js/window)
 (def doc js/document)
 (def docbody (.-body doc))
-(def baseurl "three.js/")
-(def bellurl "/../../data/bell-marker.patt")
-(def wineurl "/../../data/wine-marker.patt")
-(def gasurl "/../../data/gas-marker.patt")
-(def foodurl "/../../data/food-marker.patt")
-(def campath "/../../data/camera_para.dat")
+(def bellurl "/../data/bell-marker.patt")
+(def wineurl "/../data/wine-marker.patt")
+(def gasurl "/../data/gas-marker.patt")
+(def foodurl "/../data/food-marker.patt")
+(def campath "/../data/camera_para.dat")
 
 (def th js/THREE)
 (def th-x js/THREEx)
@@ -116,7 +115,7 @@
   ;; RETURNS smoothed-root
   
   (let [cur-marker-root (th.Group.)
-        marker-params (js-obj "type" "pattern" "patternUrl" (str baseurl patt-url))
+        marker-params (js-obj "type" "pattern" "patternUrl" patt-url)
         cur-marker-ctl (th-x.ArMarkerControls. art-ctx cur-marker-root marker-params) ;; binds controls to root somehow?
         cur-smooth-root (th.Group.)
         smooth-params (js-obj "lerpPosition" 0.4 "lerpQuaternion" 0.3 "lerpScale" 1)
