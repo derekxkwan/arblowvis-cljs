@@ -6881,6 +6881,7 @@ THREE.Mesh.prototype = {
     "rotateX": function () {},
     "rotateY": function () {},
     "rotateZ": function () {},
+    "scale": function () {},
     "setDrawMode": function () {},
     "setRotationFromAxisAngle": function () {},
     "setRotationFromEuler": function () {},

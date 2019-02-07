@@ -15,7 +15,9 @@
                   {:entries [arblowvis-cljs.client]}}
 
         :compiler-options
-        {:externs ["docs/lib/three-merge.ext.js"
+        {:externs ["docs/lib/textureanim.js"
+                   "docs/lib/three-merge.ext.js"
+                   "docs/lib/PLYLoader.js"
                    "docs/lib/ar.ext.js"]}
         :devtools {:http-root "docs"
                    :http-port 8020}

@@ -7,8 +7,10 @@
 (def doc js/document)
 (def docbody (.-body doc))
 (def baseurl "three.js/")
-(def hirourl "/../../data/patt.hiro")
-(def kwanurl "/../../data/pattern-marker-kwan.patt")
+(def bellurl "/../../data/bell-marker.patt")
+(def wineurl "/../../data/wine-marker.patt")
+(def gasurl "/../../data/gas-marker.patt")
+(def foodurl "/../../data/food-marker.patt")
 
 (def th js/THREE)
 (def th-x js/THREEx)
@@ -19,8 +21,10 @@
 (def art-src nil)
 (def art-ctx nil)
 
-(def hiro-root nil)
-(def kwan-root nil)
+(def wine-root nil)
+(def bell-root nil)
+(def gas-root nil)
+(def food-root nil)
 
 (def scene nil)
 (def camera nil)
@@ -67,7 +71,7 @@
 (defn artsrc-init []
   (.log js/console "artoolkit-source init")
   (let [cur-params (js-obj "sourceType" "webcam")
-        ;cur-params (js-obj "sourceType" "image" "sourceUrl" "../res/testimg.jpg")
+       ; cur-params (js-obj "sourceType" "image" "sourceUrl" "../res/testimg5.jpg")
         cur-ar (th-x.ArToolkitSource. cur-params)]
     (set! art-src cur-ar)
     (.init art-src (fn [] (on-resize)
@@ -178,11 +182,12 @@
   (init-three)
   (artsrc-init)
   (artctx-init)
-  (set! kwan-root (marker-init kwanurl))
-  (set! hiro-root (marker-init hirourl))
-
+  (set! bell-root (marker-init bellurl))
+  (set! wine-root (marker-init wineurl))
+  (set! gas-root (marker-init gasurl))
+  (set! food-root (marker-init foodurl))
   ;(smooth-init)
-  (scn/scene-init  scene renderer hiro-root kwan-root)
+  (scn/scene-init  scene renderer bell-root wine-root gas-root food-root)
   (loop-init)
   ;(.log js/console (.-children smooth-root))
   )
