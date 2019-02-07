@@ -6,16 +6,17 @@
 (def th-x js/THREEx)
 (def h-pi (/ js/Math.PI 2.0))
 (def w-pi js/Math.PI)
+(def online? true)
 
-(def bell-sheet "/../res/bell_sheet.png")
-(def wine-sheet "/../res/wine_sheet.png")
-(def gas-sheet "/../res/gas_sheet.png")
-(def food-sheet "/../res/food_sheet.png")
+(def bell-sheet "res/bell_sheet.png")
+(def wine-sheet "res/wine_sheet.png")
+(def gas-sheet "res/gas_sheet.png")
+(def food-sheet "res/food_sheet.png")
 
-(def bell-url "/../res/bell3.ply")
-(def wine-url "/../res/wine2.ply")
-(def gas-url "/../res/gas_station.ply")
-(def food-url "/../res/fingerfood.ply")
+(def bell-url "res/bell3.ply")
+(def wine-url "res/wine2.ply")
+(def gas-url "res/gas_station.ply")
+(def food-url "res/fingerfood.ply")
 
 (def debug? false)
 (def txr-loader nil)
@@ -46,6 +47,14 @@
 
 (def min-rms (atom 0))
 (def max-rms (atom 0)) ;; around 0.6?
+
+(defn parse-path [cur-path]
+  (if (true? online?)
+    cur-path
+    (str "/../" cur-path)
+    )
+  )
+  
 
 (defn rms-idx-inc [cur-idx]
   (mod (inc cur-idx) rms-num)
@@ -333,10 +342,10 @@
   (init-ply-loader)
   (init-txr-loader)
   (init-lights cur-scene)
-  (set! bell-mesh (init-bell root1 bell-url bell-sheet))
-  (set! wine-mesh (init-wine root2 wine-url wine-sheet))
-  (set! gas-mesh (init-gas root3 gas-url gas-sheet))
-  (set! food-mesh (init-food root4 food-url food-sheet))
+  (set! bell-mesh (init-bell root1 (parse-path bell-url) (parse-path bell-sheet)))
+  (set! wine-mesh (init-wine root2 (parse-path wine-url) (parse-path wine-sheet)))
+  (set! gas-mesh (init-gas root3 (parse-path gas-url) (parse-path gas-sheet)))
+  (set! food-mesh (init-food root4 (parse-path food-url) (parse-path food-sheet)))
   ;(set! pic1-mesh (init-pict root1 pic1-url))
   ;(set! pic2-mesh (init-pict root2 pic2-url))
   (swap! update-fns conj (fn [] (update-rms)))

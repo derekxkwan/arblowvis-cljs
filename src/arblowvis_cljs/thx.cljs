@@ -84,7 +84,7 @@
 
 (defn artctx-init []
   (.log js/console "artoolkit-context init")
-  (let [param-url campath
+  (let [param-url (scn/parse-path campath)
         cur-params (js-obj
                     "cameraParametersUrl" param-url
                     "detectionMode" "mono"
@@ -115,7 +115,7 @@
   ;; RETURNS smoothed-root
   
   (let [cur-marker-root (th.Group.)
-        marker-params (js-obj "type" "pattern" "patternUrl" patt-url)
+        marker-params (js-obj "type" "pattern" "patternUrl" (scn/parse-path patt-url))
         cur-marker-ctl (th-x.ArMarkerControls. art-ctx cur-marker-root marker-params) ;; binds controls to root somehow?
         cur-smooth-root (th.Group.)
         smooth-params (js-obj "lerpPosition" 0.4 "lerpQuaternion" 0.3 "lerpScale" 1)
