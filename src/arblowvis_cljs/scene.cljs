@@ -7,15 +7,15 @@
 (def h-pi (/ js/Math.PI 2.0))
 (def w-pi js/Math.PI)
 
-(def bell-sheet "../res/bell_sheet.png")
-(def wine-sheet "../res/wine_sheet.png")
-(def gas-sheet "../res/gas_sheet.png")
-(def food-sheet "../res/food_sheet.png")
+(def bell-sheet "/../../res/bell_sheet.png")
+(def wine-sheet "/../../res/wine_sheet.png")
+(def gas-sheet "/../../res/gas_sheet.png")
+(def food-sheet "/../../res/food_sheet.png")
 
-(def bell-url "../res/bell3.ply")
-(def wine-url "../res/wine2.ply")
-(def gas-url "../res/gas_station.ply")
-(def food-url "../res/fingerfood.ply")
+(def bell-url "/../../res/bell3.ply")
+(def wine-url "/../../res/wine2.ply")
+(def gas-url "/../../res/gas_station.ply")
+(def food-url "/../../res/fingerfood.ply")
 
 (def debug? false)
 (def txr-loader nil)

@@ -11,6 +11,7 @@
 (def wineurl "/../../data/wine-marker.patt")
 (def gasurl "/../../data/gas-marker.patt")
 (def foodurl "/../../data/food-marker.patt")
+(def campath "/../../data/camera_para.dat")
 
 (def th js/THREE)
 (def th-x js/THREEx)
@@ -84,7 +85,7 @@
 
 (defn artctx-init []
   (.log js/console "artoolkit-context init")
-  (let [param-url "../data/camera_para.dat"
+  (let [param-url campath
         cur-params (js-obj
                     "cameraParametersUrl" param-url
                     "detectionMode" "mono"
